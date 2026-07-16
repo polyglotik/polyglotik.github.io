@@ -43,3 +43,44 @@ span {
     color: gray;
     font-size: 16px;
 }
+.languages {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.language-card {
+    background: white;
+    width: 280px;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+
+.language-card img {
+    width: 100px;
+    height: auto;
+}
+
+
+.language-card h3 {
+    font-size: 26px;
+}
+
+
+.language-card a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 20px;
+    background: #222;
+    color: white;
+    border-radius: 8px;
+}
+
+
+.language-card span {
+    color: gray;
+}
