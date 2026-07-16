@@ -1,86 +1,120 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f6f8;
-    color: #222;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 40px;
-}
+<!DOCTYPE html>
+<html lang="ru">
 
-h1 {
-    font-size: 42px;
-    text-align: center;
-}
+<head>
 
-p {
-    text-align: center;
-    font-size: 20px;
-}
+<meta charset="UTF-8">
 
-h2 {
-    margin-top: 40px;
-}
+<title>Polyglotik</title>
 
-ul {
-    list-style: none;
-    padding: 0;
-}
+<link rel="stylesheet" href="style.css">
 
-li {
-    background: white;
-    margin: 15px 0;
-    padding: 20px;
-    border-radius: 12px;
-    font-size: 22px;
-}
+</head>
 
-a {
-    text-decoration: none;
-    color: #222;
-}
+<body>
 
-span {
-    color: gray;
-    font-size: 16px;
-}
-.languages {
-    display: flex;
-    gap: 25px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+<div class="page">
 
+<h1>POLYGLOTIK</h1>
 
-.language-card {
-    background: white;
-    width: 280px;
-    padding: 25px;
-    border-radius: 15px;
-    text-align: center;
-}
+<p class="subtitle">
+Изучение иностранных языков с нуля
+</p>
 
+<hr>
 
-.language-card img {
-    width: 100px;
-    height: auto;
-}
+<p class="description">
 
+Добро пожаловать на Polyglotik — бесплатный образовательный портал
+для самостоятельного изучения иностранных языков.
 
-.language-card h3 {
-    font-size: 26px;
-}
+Здесь собраны пошаговые уроки, простая грамматика,
+словарный запас и упражнения.
 
+</p>
 
-.language-card a {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 12px 20px;
-    background: #222;
-    color: white;
-    border-radius: 8px;
-}
+<h2>Выберите раздел</h2>
 
+<div class="cards">
 
-.language-card span {
-    color: gray;
-}
+<a href="english/index.html" class="card english">
+
+<div class="flag">
+🇬🇧
+</div>
+
+<h3>Английский</h3>
+
+<p>
+Начать обучение
+</p>
+
+</a>
+
+<a href="spanish/index.html" class="card spanish">
+
+<div class="flag">
+🇪🇸
+</div>
+
+<h3>Испанский</h3>
+
+<p>
+В разработке
+</p>
+
+</a>
+
+<a href="#" class="card about">
+
+<div class="flag">
+ℹ️
+</div>
+
+<h3>О сайте</h3>
+
+<p>
+Подробнее
+</p>
+
+</a>
+
+</div>
+
+<h2>Почему Polyglotik?</h2>
+
+<p>
+
+Polyglotik создан для тех,
+кто хочет изучать иностранные языки
+без сложных учебников.
+
+Материал объясняется простым языком,
+а каждый следующий урок продолжает предыдущий.
+
+</p>
+
+<h2>Как проходит обучение?</h2>
+
+<p>
+
+Каждый курс состоит из последовательных уроков.
+
+Вы изучаете новую тему,
+читаете примеры,
+запоминаете слова
+и закрепляете знания упражнениями.
+
+</p>
+
+<footer>
+
+Спасибо за прочтение!
+
+</footer>
+
+</div>
+
+</body>
+
+</html>
