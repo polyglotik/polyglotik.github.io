@@ -1,111 +1,279 @@
-/* ===== ОБЩИЕ НАСТРОЙКИ ===== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600&display=swap');
 
-body {
-    margin: 0;
-    padding: 0;
-    background: #ece7dc;
-    font-family: Georgia, "Times New Roman", serif;
-    color: #333;
+/* =======================
+   ОБЩИЕ НАСТРОЙКИ
+======================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* Основной контейнер */
+body{
 
-.page {
+    background:#ece8df;
 
-    width: 1000px;
+    font-family:'Poppins',sans-serif;
 
-    margin: 40px auto;
-
-    background: white;
-
-    padding: 40px;
-
-    border-left: 12px dotted #c8b58a;
-
-    border-right: 12px dotted #c8b58a;
-
-    box-shadow: 0 0 20px rgba(0,0,0,.15);
-
-}
-
-
-/* ===== Заголовок ===== */
-
-h1{
-
-    text-align:center;
-
-    font-size:64px;
-
-    color:#24457a;
-
-    margin-bottom:5px;
-
-    letter-spacing:3px;
-
-}
-
-
-.subtitle{
-
-    text-align:center;
-
-    font-size:24px;
-
-    color:#8a3d2c;
-
-    margin-bottom:30px;
-
-}
-
-
-.description{
-
-    font-size:22px;
+    color:#333;
 
     line-height:1.8;
 
-    text-align:center;
+}
 
-    margin:40px 0;
+/* =======================
+   СТРАНИЦА
+======================= */
+
+.page{
+
+    width:min(1100px,92%);
+
+    margin:40px auto;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:60px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+
+    border-left:12px solid #c6a769;
+
+    border-right:12px solid #c6a769;
 
 }
 
+/* =======================
+   HEADER
+======================= */
 
-/* ===== Подзаголовки ===== */
+header{
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+}
+
+h1{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:72px;
+
+    color:#1d3d73;
+
+    letter-spacing:5px;
+
+    margin-bottom:15px;
+
+}
+
+.subtitle{
+
+    font-size:26px;
+
+    color:#7d3d28;
+
+}
+
+/* =======================
+   ЗАГОЛОВКИ
+======================= */
 
 h2{
 
-    color:#8a5d25;
+    font-family:'Playfair Display',serif;
+
+    color:#9b6d1d;
+
+    font-size:40px;
+
+    margin-bottom:25px;
 
     margin-top:60px;
 
-    font-size:34px;
+}
+
+/* =======================
+   ОБЫЧНЫЙ ТЕКСТ
+======================= */
+
+p{
+
+    font-size:21px;
 
 }
 
-
-/* ===== Карточки ===== */
+/* =======================
+   КАРТОЧКИ
+======================= */
 
 .cards{
 
     display:flex;
 
-    justify-content:space-between;
-
     gap:30px;
 
-    margin-top:30px;
+    margin-top:35px;
+
+    flex-wrap:wrap;
 
 }
-
 
 .card{
 
     flex:1;
 
+    min-width:260px;
+
     background:#fafafa;
 
-    border:1px solid #d5d5d5;
+    border-radius:18px;
+
+    text-align:center;
+
+    padding:35px;
+
+    text-decoration:none;
+
+    color:#333;
+
+    transition:.3s;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+
+}
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 35px rgba(0,0,0,.18);
+
+}
+
+.card img{
+
+    width:150px;
 
     border-radius:12px;
+
+    margin-bottom:25px;
+
+    box-shadow:0 6px 15px rgba(0,0,0,.2);
+
+}
+
+.about-icon{
+
+    font-size:110px;
+
+    margin-bottom:20px;
+
+}
+
+.card h3{
+
+    font-size:34px;
+
+    margin-bottom:15px;
+
+}
+
+.card p{
+
+    font-size:19px;
+
+}
+
+.english{
+
+    border-top:10px solid #1f5cb5;
+
+}
+
+.spanish{
+
+    border-top:10px solid #c0392b;
+
+}
+
+.about{
+
+    border-top:10px solid #2f8f63;
+
+}
+
+/* =======================
+   СЕКЦИИ
+======================= */
+
+section{
+
+    margin-bottom:70px;
+
+}
+
+/* =======================
+   FOOTER
+======================= */
+
+footer{
+
+    margin-top:80px;
+
+    text-align:center;
+
+    font-size:30px;
+
+    color:#1d3d73;
+
+    font-family:'Playfair Display',serif;
+
+    border-top:2px solid #ddd;
+
+    padding-top:30px;
+
+}
+
+/* =======================
+   ТЕЛЕФОН
+======================= */
+
+@media(max-width:850px){
+
+    .page{
+
+        padding:30px;
+
+    }
+
+    h1{
+
+        font-size:48px;
+
+    }
+
+    h2{
+
+        font-size:32px;
+
+    }
+
+    .subtitle{
+
+        font-size:20px;
+
+    }
+
+    .card{
+
+        min-width:100%;
+
+    }
+
+}
