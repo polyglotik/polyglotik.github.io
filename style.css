@@ -1,120 +1,111 @@
-<!DOCTYPE html>
-<html lang="ru">
+/* ===== ОБЩИЕ НАСТРОЙКИ ===== */
 
-<head>
+body {
+    margin: 0;
+    padding: 0;
+    background: #ece7dc;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #333;
+}
 
-<meta charset="UTF-8">
+/* Основной контейнер */
 
-<title>Polyglotik</title>
+.page {
 
-<link rel="stylesheet" href="style.css">
+    width: 1000px;
 
-</head>
+    margin: 40px auto;
 
-<body>
+    background: white;
 
-<div class="page">
+    padding: 40px;
 
-<h1>POLYGLOTIK</h1>
+    border-left: 12px dotted #c8b58a;
 
-<p class="subtitle">
-Изучение иностранных языков с нуля
-</p>
+    border-right: 12px dotted #c8b58a;
 
-<hr>
+    box-shadow: 0 0 20px rgba(0,0,0,.15);
 
-<p class="description">
+}
 
-Добро пожаловать на Polyglotik — бесплатный образовательный портал
-для самостоятельного изучения иностранных языков.
 
-Здесь собраны пошаговые уроки, простая грамматика,
-словарный запас и упражнения.
+/* ===== Заголовок ===== */
 
-</p>
+h1{
 
-<h2>Выберите раздел</h2>
+    text-align:center;
 
-<div class="cards">
+    font-size:64px;
 
-<a href="english/index.html" class="card english">
+    color:#24457a;
 
-<div class="flag">
-🇬🇧
-</div>
+    margin-bottom:5px;
 
-<h3>Английский</h3>
+    letter-spacing:3px;
 
-<p>
-Начать обучение
-</p>
+}
 
-</a>
 
-<a href="spanish/index.html" class="card spanish">
+.subtitle{
 
-<div class="flag">
-🇪🇸
-</div>
+    text-align:center;
 
-<h3>Испанский</h3>
+    font-size:24px;
 
-<p>
-В разработке
-</p>
+    color:#8a3d2c;
 
-</a>
+    margin-bottom:30px;
 
-<a href="#" class="card about">
+}
 
-<div class="flag">
-ℹ️
-</div>
 
-<h3>О сайте</h3>
+.description{
 
-<p>
-Подробнее
-</p>
+    font-size:22px;
 
-</a>
+    line-height:1.8;
 
-</div>
+    text-align:center;
 
-<h2>Почему Polyglotik?</h2>
+    margin:40px 0;
 
-<p>
+}
 
-Polyglotik создан для тех,
-кто хочет изучать иностранные языки
-без сложных учебников.
 
-Материал объясняется простым языком,
-а каждый следующий урок продолжает предыдущий.
+/* ===== Подзаголовки ===== */
 
-</p>
+h2{
 
-<h2>Как проходит обучение?</h2>
+    color:#8a5d25;
 
-<p>
+    margin-top:60px;
 
-Каждый курс состоит из последовательных уроков.
+    font-size:34px;
 
-Вы изучаете новую тему,
-читаете примеры,
-запоминаете слова
-и закрепляете знания упражнениями.
+}
 
-</p>
 
-<footer>
+/* ===== Карточки ===== */
 
-Спасибо за прочтение!
+.cards{
 
-</footer>
+    display:flex;
 
-</div>
+    justify-content:space-between;
 
-</body>
+    gap:30px;
 
-</html>
+    margin-top:30px;
+
+}
+
+
+.card{
+
+    flex:1;
+
+    background:#fafafa;
+
+    border:1px solid #d5d5d5;
+
+    border-radius:12px;
