@@ -1,0 +1,495 @@
+/* ==========================================================================
+   Переменные и Базовые стили
+   ========================================================================== */
+:root {
+  --primary: #007a63;
+  --primary-light: #e6f4f0;
+  --primary-dark: #004d3e;
+  --text-main: #2d3748;
+  --text-muted: #64748b;
+  --bg-color: #f4f9f7;
+  --card-bg: #ffffff;
+  --accent-yellow: #fbbc04;
+  --dev-red: #ef4444;
+  --dev-red-bg: #fef2f2;
+  --dev-red-border: #fca5a5;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --shadow-soft: 0 12px 32px -6px rgba(0, 122, 99, 0.09);
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.65;
+  padding-bottom: 50px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Фоновые узоры
+   ========================================================================== */
+.bg-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#007a63 0.8px, transparent 0.8px);
+  background-size: 24px 24px;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: -2;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.blob-1 {
+  top: 250px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  background: var(--primary);
+}
+
+.blob-2 {
+  top: 800px;
+  right: -100px;
+  width: 350px;
+  height: 350px;
+  background: #3b82f6;
+}
+
+/* ==========================================================================
+   1. Шапка (Header)
+   ========================================================================== */
+.main-header {
+  background: #005a49;
+  color: #fff;
+  padding: 12px 0;
+}
+
+.header-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Comfortaa', cursive;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.logo-dot {
+  color: var(--accent-yellow);
+}
+
+.menu-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.menu-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ==========================================================================
+   2. Анимированный фоновый баннер (Герой-иллюстрация)
+   ========================================================================== */
+.hero-banner {
+  background: linear-gradient(180deg, #005a49 0%, #007a63 100%);
+  position: relative;
+  padding: 20px 0 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-illustration {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Земной шар */
+.globe-wrapper {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse-glow 4s ease-in-out infinite alternate;
+}
+
+.globe-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
+}
+
+.orbit-ring {
+  position: absolute;
+  width: 150px;
+  height: 60px;
+  border: 2px dashed rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  transform: rotate(-15deg);
+  animation: spin-orbit 20s linear infinite;
+}
+
+/* Плавающие бабблы и иконки */
+.floating-badge {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--primary-dark);
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(4px);
+  animation: float 3.5s ease-in-out infinite alternate;
+}
+
+.badge-1 { top: 15px; left: 15%; }
+.badge-2 { bottom: 35px; right: 12%; }
+.badge-3 { top: 25px; right: 18%; }
+
+.floating-icon {
+  position: absolute;
+  font-size: 1.5rem;
+  animation: float 4s ease-in-out infinite alternate;
+}
+
+.icon-book { bottom: 25px; left: 18%; }
+.icon-sparkle { top: 10px; right: 40%; }
+
+/* Задержки анимации */
+.float-delay-1 { animation-delay: 0s; }
+.float-delay-2 { animation-delay: 1.2s; }
+.float-delay-3 { animation-delay: 2.1s; }
+
+/* Ключевые кадры анимаций */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-10px) rotate(3deg); }
+}
+
+@keyframes pulse-glow {
+  0% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1)); }
+  100% { transform: scale(1.04); filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3)); }
+}
+
+@keyframes spin-orbit {
+  0% { transform: rotate(-15deg) stroke-dashoffset; }
+  100% { transform: rotate(345deg); }
+}
+
+.hero-wave {
+  width: 100%;
+  line-height: 0;
+  margin-top: 10px;
+}
+
+.hero-wave svg {
+  width: 100%;
+  height: 45px;
+}
+
+/* ==========================================================================
+   3. Главный контейнер и карточки
+   ========================================================================== */
+.content-wrapper {
+  max-width: 600px;
+  margin: -15px auto 0;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(0, 122, 99, 0.06);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.icon-badge {
+  font-size: 1.4rem;
+  background: var(--primary-light);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.card-header h2 {
+  font-family: 'Comfortaa', cursive;
+  color: var(--primary-dark);
+  font-size: 1.3rem;
+  line-height: 1.3;
+}
+
+.card-body p {
+  margin-bottom: 16px;
+  color: #4a5568;
+  font-size: 0.98rem;
+}
+
+.card-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Оформление акцентов */
+.highlight {
+  color: var(--primary-dark);
+}
+
+.text-accent {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.skill-tag {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.9em;
+  display: inline-block;
+  margin: 1px 0;
+}
+
+.callout-box {
+  background: #edf7f4;
+  border-left: 4px solid var(--primary);
+  padding: 14px 16px;
+  border-radius: 0 12px 12px 0;
+  margin: 20px 0;
+}
+
+.callout-box p {
+  margin: 0;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+/* ==========================================================================
+   4. Выбор языка
+   ========================================================================== */
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 18px;
+}
+
+.lang-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lang-button {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid #e2e8f0;
+  background: #ffffff;
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+.lang-button:not(.disabled):hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(0, 122, 99, 0.12);
+}
+
+.flag-icon {
+  width: 48px;
+  height: 34px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.flag-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info-icon {
+  background: var(--primary-light);
+  color: var(--primary);
+  border-radius: 10px;
+}
+
+.lang-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+}
+
+.lang-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+
+.lang-title {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--text-main);
+}
+
+.lang-action {
+  font-size: 0.88rem;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* Испанский язык в разработке */
+.lang-button.disabled {
+  background: #fdf2f2;
+  border-color: var(--dev-red-border);
+  cursor: not-allowed;
+}
+
+.dev-badge {
+  background-color: var(--dev-red-bg);
+  color: var(--dev-red);
+  border: 1px solid var(--dev-red-border);
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.lang-action.dev-text {
+  color: var(--dev-red);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   5. Карточка "Содержание занятий Polyglotik" (Внизу)
+   ========================================================================== */
+.content-card .placeholder-text {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  letter-spacing: 4px;
+  margin: 0;
+  padding: 10px 0;
+}
+
+/* ==========================================================================
+   Кнопка "Наверх"
+   ========================================================================== */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #2d3748;
+  color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 10;
+}
+
+.scroll-top-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   Адаптивность для ПК (Десктоп)
+   ========================================================================== */
+@media (min-width: 768px) {
+  .hero-illustration {
+    height: 220px;
+  }
+  
+  .globe-wrapper {
+    width: 130px;
+    height: 130px;
+  }
+
+  .floating-badge {
+    font-size: 0.95rem;
+    padding: 8px 18px;
+  }
+}
