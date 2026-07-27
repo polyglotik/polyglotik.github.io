@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polyglotik — Изучение иностранных языков</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Подключаем дружелюбные и современные шрифты -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Декоративные фоновые элементы -->
+  <div class="bg-pattern"></div>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <!-- Шапка сайта -->
+  <header class="main-header">
+    <div class="header-container">
+      <a href="#" class="logo">Polyglotik<span class="logo-dot">.</span></a>
+      <button class="menu-btn" aria-label="Меню">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <!-- Волна внизу шапки -->
+    <div class="header-wave">
+      <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,32L60,42.7C120,53,240,75,360,80C480,85,600,75,720,58.7C840,43,960,21,1080,16C1200,11,1320,21,1380,26.7L1440,32L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z" fill="#f4f9f7"></path>
+      </svg>
+    </div>
+  </header>
+
+  <main class="content-wrapper">
+    
+    <!-- Карточка 1: Приветствие -->
+    <section class="card hero-card">
+      <div class="card-header">
+        <span class="icon-badge">🌱</span>
+        <h2>Приветствуем всех!</h2>
+      </div>
+
+      <div class="card-body">
+        <p>
+          Добро пожаловать на <strong class="highlight">Polyglotik</strong> — экспериментальный некоммерческий портал, предназначенный для 
+          <span class="text-accent">самостоятельного, быстрого и современного изучения иностранных языков</span>. 
+          Здесь собраны и структурированы авторские занятия, созданные на основе публичных данных Интернета, уважаемых источников и языковых словарей с применением искусственного интеллекта. Автор не является профессиональным преподавателем, но делится собственным практическим опытом.
+        </p>
+
+        <p>
+          Изучение иностранного языка — сложный и продолжительный процесс, требующий повышенной концентрации и мотивации со стороны изучающего, непрерывной работы над навыками 
+          <span class="skill-tag">Listening</span>, 
+          <span class="skill-tag">Speaking</span>, 
+          <span class="skill-tag">Reading</span> и 
+          <span class="skill-tag">Writing</span>, освоения правил грамматики и набора словарного запаса.
+        </p>
+
+        <div class="callout-box">
+          <p>Данный портал может помочь вам разобраться в этой сфере.</p>
+        </div>
+
+        <p>
+          Основной фокус авторских занятий сосредоточен на <strong class="highlight">освоении современной лексики и грамматики языка</strong>, изучении нюансов и закреплении изученного с помощью небольших практических занятий.
+        </p>
+
+        <!-- НОВЫЙ ПОДПУНКТ -->
+        <div class="subtopic-box">
+          <h3 class="subtopic-title">✨ Содержание занятий Polyglotik</h3>
+          <div class="subtopic-content">
+            <p>...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Карточка 2: Выбор языка -->
+    <section class="card lang-card">
+      <div class="card-header">
+        <span class="icon-badge">🌐</span>
+        <h2>Выберите язык для изучения</h2>
+      </div>
+
+      <p class="section-subtitle">
+        Нажмите на интересующий язык или раздел, чтобы перейти к обучающим материалам:
+      </p>
+
+      <div class="lang-grid">
+        
+        <!-- Кнопка Английского -->
+        <a href="#" class="lang-button">
+          <div class="flag-icon">
+            <img src="https://flagcdn.com/w80/gb.png" alt="Флаг Великобритании">
+          </div>
+          <div class="lang-info">
+            <span class="lang-title">Английский язык</span>
+            <span class="lang-action">Перейти к курсу &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Кнопка Испанского (В разработке) -->
+        <div class="lang-button disabled">
+          <div class="flag-icon">
+            <img src="https://flagcdn.com/w80/es.png" alt="Флаг Испании">
+          </div>
+          <div class="lang-info">
+            <div class="lang-title-row">
+              <span class="lang-title">Испанский язык</span>
+              <span class="dev-badge">В разработке</span>
+            </div>
+            <span class="lang-action dev-text">Скоро появится &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Кнопка О сайте -->
+        <a href="#" class="lang-button info-button">
+          <div class="flag-icon info-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+          </div>
+          <div class="lang-info">
+            <span class="lang-title">О сайте</span>
+            <span class="lang-action">Информация &rarr;</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Кнопка наверх -->
+  <button class="scroll-top-btn" aria-label="Наверх">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+
+</body>
+</html>
