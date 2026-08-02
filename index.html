@@ -47,82 +47,33 @@
     </div>
   </header>
 
-  <!-- 2. Технологичный анимированный баннер (English HUD Core) -->
-  <section class="tech-banner">
-    <div class="tech-grid-bg"></div>
-    <div class="scan-line"></div>
-    <div class="glow-spot glow-blue"></div>
-    <div class="glow-spot glow-cyan"></div>
-
-    <div class="tech-hero-wrapper">
-      
-      <!-- Голографическое ядро HUD -->
-      <div class="hud-wrapper">
-        
-        <!-- Выезжающие стеклянные HUD-плашки -->
-        <div class="hud-badge badge-top-left">
-          <span class="tech-led"></span>
-          <span>SYSTEM // EN_CORE</span>
-        </div>
-
-        <div class="hud-badge badge-top-right">
-          <span class="tech-led purple"></span>
-          <span>AUDIO_HQ</span>
-        </div>
-
-        <div class="hud-badge badge-bottom-right">
-          <span class="tech-led"></span>
-          <span>A1 &rarr; C2 LEVEL</span>
-        </div>
-
-        <!-- Сложная SVG HUD графика -->
-        <svg class="hud-svg" viewBox="0 0 200 200">
+   <!-- 2. Анимированный фоновый баннер -->
+  <section class="hero-banner">
+    <div class="hero-illustration">
+      <div class="globe-wrapper">
+        <svg class="globe-svg" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="45" fill="url(#globeGrad)" />
+          <path d="M 10,50 Q 50,20 90,50 Q 50,80 10,50 Z" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" />
+          <path d="M 50,5 A 45,45 0 0,0 50,95 A 25,45 0 0,0 50,5" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
+          <path d="M 25,20 Q 40,35 30,55 T 45,80" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round"/>
+          <path d="M 60,15 Q 85,30 70,60 T 80,85" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round"/>
           <defs>
-            <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#38bdf8" />
-              <stop offset="100%" stop-color="#0284c7" />
-            </linearGradient>
-            <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#c084fc" />
-              <stop offset="100%" stop-color="#7e22ce" />
+            <linearGradient id="globeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00a887" />
+              <stop offset="100%" stop-color="#005a49" />
             </linearGradient>
           </defs>
-
-          <!-- Внешнее пунктирное кольцо (Вращение по часовой) -->
-          <circle class="rotate-cw" cx="100" cy="100" r="90" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="6, 12" opacity="0.5" />
-          
-          <!-- Внутреннее техническое кольцо с делениями (Вращение против часовой) -->
-          <circle class="rotate-ccw" cx="100" cy="100" r="75" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-dasharray="2, 4, 15, 4" opacity="0.7" />
-
-          <!-- Направляющие крестовые линии прицела -->
-          <line x1="100" y1="10" x2="100" y2="30" stroke="#38bdf8" stroke-width="2" opacity="0.6"/>
-          <line x1="100" y1="170" x2="100" y2="190" stroke="#38bdf8" stroke-width="2" opacity="0.6"/>
-          <line x1="10" y1="100" x2="30" y2="100" stroke="#38bdf8" stroke-width="2" opacity="0.6"/>
-          <line x1="170" y1="100" x2="190" y2="100" stroke="#38bdf8" stroke-width="2" opacity="0.6"/>
-
-          <!-- Центральное пульсирующее ядро с британским неоновым акцентом -->
-          <g class="pulse-core">
-            <circle cx="100" cy="100" r="50" fill="url(#cyanGrad)" opacity="0.15" />
-            <circle cx="100" cy="100" r="42" fill="none" stroke="#38bdf8" stroke-width="2" />
-            
-            <!-- Стилизованная неоновая иконка моста / флага / волны в центре -->
-            <path d="M 80,100 Q 90,85 100,100 T 120,100" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
-            <path d="M 85,108 Q 95,93 105,108 T 115,108" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
-            <circle cx="100" cy="100" r="4" fill="#ffffff" />
-          </g>
         </svg>
-
+        <div class="orbit-ring"></div>
       </div>
 
-      <!-- Технологичный заголовок -->
-      <div class="tech-title-block">
-        <span class="tech-tag">[ MODULE: ENGLISH_LANG ]</span>
-        <h1 class="tech-heading">ENGLISH <span class="accent-text">SYSTEM</span></h1>
-      </div>
-
+      <div class="floating-badge badge-1 float-delay-1"><span>Hello!</span></div>
+      <div class="floating-badge badge-2 float-delay-2"><span>¡Hola!</span></div>
+      <div class="floating-badge badge-3 float-delay-3"><span>Bonjour!</span></div>
+      <div class="floating-icon icon-book float-delay-2">📚</div>
+      <div class="floating-icon icon-sparkle float-delay-1">✨</div>
     </div>
 
-    <!-- Волна перехода к светлому фону -->
     <div class="hero-wave">
       <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none">
         <path d="M0,32L60,42.7C120,53,240,75,360,80C480,85,600,75,720,58.7C840,43,960,21,1080,16C1200,11,1320,21,1380,26.7L1440,32L1440,120L0,120Z" fill="#f4f9f7"></path>
