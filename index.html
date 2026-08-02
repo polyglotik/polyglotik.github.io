@@ -187,3 +187,30 @@
       <path d="M18 15l-6-6-6 6"/>
     </svg>
   </button>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const drawer = document.getElementById('sideDrawer');
+      const overlay = document.getElementById('drawerOverlay');
+      const openBtn = document.getElementById('drawerOpen');
+      const closeBtn = document.getElementById('drawerClose');
+      const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+      function toggleMenu(show) {
+        drawer.classList.toggle('open', show);
+        overlay.classList.toggle('open', show);
+        document.body.style.overflow = show ? 'hidden' : '';
+      }
+
+      if (openBtn) openBtn.addEventListener('click', () => toggleMenu(true));
+      if (closeBtn) closeBtn.addEventListener('click', () => toggleMenu(false));
+      if (overlay) overlay.addEventListener('click', () => toggleMenu(false));
+
+      if (scrollTopBtn) {
+        scrollTopBtn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
