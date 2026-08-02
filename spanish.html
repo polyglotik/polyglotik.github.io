@@ -11,7 +11,12 @@
 </head>
 <body class="theme-spanish">
 
-  <!-- Выезжающее меню-сайдбар -->
+  <!-- Фон с узором -->
+  <div class="bg-pattern"></div>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <!-- Выезжающее меню -->
   <aside class="side-drawer" id="sideDrawer">
     <div class="drawer-header">
       <span class="drawer-logo">Polyglotik<span class="logo-dot">.</span></span>
@@ -28,46 +33,60 @@
   </aside>
   <div class="drawer-overlay" id="drawerOverlay"></div>
 
-  <!-- Шапка -->
+  <!-- 1. Шапка сайта -->
   <header class="main-header">
     <div class="header-container">
-      <button class="menu-btn" id="drawerOpen" aria-label="Открыть меню">
+      <a href="index.html" class="logo">Polyglotik<span class="logo-dot">.</span></a>
+      <button class="menu-btn" id="drawerOpen" aria-label="Меню">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
       </button>
-      <a href="index.html" class="logo">Polyglotik<span class="logo-dot">.</span></a>
     </div>
   </header>
 
-  <!-- Художественный фоновый баннер (Испанский) -->
-  <section class="art-banner">
-    <div class="art-scene">
-      <div class="art-globe"></div>
-      <span class="floating-glyph g1">¿?</span>
-      <span class="floating-glyph g2">¡!</span>
-      <span class="floating-glyph g3">Español</span>
-      <span class="floating-glyph g4">¡Hola!</span>
+  <!-- 2. Анимированный фоновый баннер (Испанская тематика) -->
+  <section class="hero-banner">
+    <div class="hero-illustration">
+      <div class="globe-wrapper">
+        <svg class="globe-svg" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="45" fill="url(#globeGradEs)" />
+          <path d="M 10,50 Q 50,20 90,50 Q 50,80 10,50 Z" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" />
+          <path d="M 50,5 A 45,45 0 0,0 50,95 A 25,45 0 0,0 50,5" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" />
+          <defs>
+            <linearGradient id="globeGradEs" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#dc2626" />
+              <stop offset="100%" stop-color="#4a0e17" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="orbit-ring"></div>
+      </div>
+
+      <div class="floating-badge badge-1 float-delay-1"><span>¿? / ¡!</span></div>
+      <div class="floating-badge badge-2 float-delay-2"><span>¡Hola!</span></div>
+      <div class="floating-badge badge-3 float-delay-3"><span>Español</span></div>
+      <div class="floating-icon icon-book float-delay-2">🇪🇸</div>
+      <div class="floating-icon icon-sparkle float-delay-1">✨</div>
     </div>
-    <div class="banner-wave">
+
+    <div class="hero-wave">
       <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none">
         <path d="M0,32L60,42.7C120,53,240,75,360,80C480,85,600,75,720,58.7C840,43,960,21,1080,16C1200,11,1320,21,1380,26.7L1440,32L1440,120L0,120Z" fill="#f4f9f7"></path>
       </svg>
     </div>
   </section>
 
-  <!-- Основное содержимое страницы -->
+  <!-- Основной контент -->
   <main class="content-wrapper">
     
-    <!-- Градиентный заголовок (Испанский) -->
     <div class="course-gradient-title">
       <h1>Курс испанского с нуля!</h1>
     </div>
 
-    <!-- Статья о языке -->
-    <article class="card article-card">
+    <article class="card">
       <div class="card-body">
         <p>
           Мечтаете освоить <strong class="highlight">испанский язык</strong>? Это потрясающий выбор, ведь испанский — один из самых ярких, красивых и распространенных языков в мире, на котором говорят сотни миллионов людей.
@@ -77,25 +96,26 @@
           Наш портал предлагает вам структурированный и понятный подход к <strong class="highlight">изучению испанского с нуля</strong>. Авторские занятия охватывают актуальную лексику, логично объясняют грамматические структуры и помогают сформировать уверенную базу без лишней теории.
         </p>
 
-        <p class="placeholder-dots">...</p>
+        <p class="placeholder-text" style="text-align: center; font-size: 1.5rem; font-weight: 800; color: var(--text-muted); margin-top: 20px;">...</p>
       </div>
     </article>
 
   </main>
 
-  <button class="scroll-top-btn" aria-label="Наверх">
+  <!-- Кнопка наверх -->
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Наверх">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
       <path d="M18 15l-6-6-6 6"/>
     </svg>
   </button>
 
-  <!-- Скрипт для работы Бургер-меню -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const drawer = document.getElementById('sideDrawer');
       const overlay = document.getElementById('drawerOverlay');
       const openBtn = document.getElementById('drawerOpen');
       const closeBtn = document.getElementById('drawerClose');
+      const scrollTopBtn = document.getElementById('scrollTopBtn');
 
       function toggleMenu(show) {
         drawer.classList.toggle('open', show);
@@ -106,7 +126,14 @@
       if (openBtn) openBtn.addEventListener('click', () => toggleMenu(true));
       if (closeBtn) closeBtn.addEventListener('click', () => toggleMenu(false));
       if (overlay) overlay.addEventListener('click', () => toggleMenu(false));
+
+      if (scrollTopBtn) {
+        scrollTopBtn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
     });
   </script>
 </body>
+</html>
 </html>
