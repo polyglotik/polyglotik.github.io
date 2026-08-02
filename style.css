@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Переменные и Базовые стили
+   1. СБРОС И ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ
    ========================================================================== */
 :root {
   --primary: #007a63;
@@ -10,13 +10,29 @@
   --bg-color: #f4f9f7;
   --card-bg: #ffffff;
   --accent-yellow: #fbbc04;
-  --dev-red: #ef4444;
-  --dev-red-bg: #fef2f2;
-  --dev-red-border: #fca5a5;
   --radius-lg: 24px;
   --radius-md: 16px;
-  --shadow-soft: 0 12px 32px -6px rgba(0, 122, 99, 0.09);
+  --shadow-soft: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 20px 35px -10px rgba(0, 0, 0, 0.12);
   --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Цветовая тема: Английский язык */
+body.theme-english {
+  --banner-bg: linear-gradient(135deg, #0f2b48 0%, #1a4971 100%);
+  --title-gradient: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  --drawer-active-bg: #fff7ed;
+  --drawer-active-color: #ea580c;
+  --accent-color: #f59e0b;
+}
+
+/* Цветовая тема: Испанский язык */
+body.theme-spanish {
+  --banner-bg: linear-gradient(135deg, #4a0e17 0%, #801d24 100%);
+  --title-gradient: linear-gradient(135deg, #dc2626 0%, #f59e0b 100%);
+  --drawer-active-bg: #fef2f2;
+  --drawer-active-color: #dc2626;
+  --accent-color: #f59e0b;
 }
 
 * {
@@ -35,75 +51,140 @@ body {
   overflow-x: hidden;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* ==========================================================================
-   Фоновые узоры
+   2. ВЫЕЗЖАЮЩЕЕ БОКОВОЕ МЕНЮ (SIDE DRAWER)
    ========================================================================== */
-.bg-pattern {
-  position: absolute;
+.side-drawer {
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 280px;
   height: 100%;
-  background-image: radial-gradient(#007a63 0.8px, transparent 0.8px);
-  background-size: 24px 24px;
-  opacity: 0.06;
+  background: #ffffff;
+  z-index: 1000;
+  box-shadow: 4px 0 25px rgba(0, 0, 0, 0.15);
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 999;
+  opacity: 0;
   pointer-events: none;
-  z-index: -2;
+  transition: opacity 0.3s ease;
 }
 
-.blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.12;
-  pointer-events: none;
-  z-index: -1;
+.drawer-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
 }
 
-.blob-1 {
-  top: 250px;
-  left: -100px;
-  width: 300px;
-  height: 300px;
-  background: var(--primary);
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 20px;
 }
 
-.blob-2 {
-  top: 800px;
-  right: -100px;
-  width: 350px;
-  height: 350px;
-  background: #3b82f6;
+.drawer-logo {
+  font-family: 'Comfortaa', cursive;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.logo-dot {
+  color: var(--accent-yellow);
+}
+
+.drawer-close-btn {
+  background: none;
+  border: none;
+  font-size: 2.2rem;
+  line-height: 1;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.drawer-close-btn:hover {
+  color: var(--text-main);
+}
+
+.drawer-nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.drawer-link {
+  display: block;
+  padding: 12px 16px;
+  border-radius: 12px;
+  color: var(--text-main);
+  font-weight: 700;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.drawer-link:hover {
+  background: #f1f5f9;
+}
+
+.drawer-link.active {
+  background: var(--drawer-active-bg, var(--primary-light));
+  color: var(--drawer-active-color, var(--primary-dark));
 }
 
 /* ==========================================================================
-   1. Шапка (Header)
+   3. ШАПКА (HEADER)
    ========================================================================== */
 .main-header {
   background: #005a49;
-  color: #fff;
-  padding: 12px 0;
+  color: #ffffff;
+  padding: 14px 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
+
+.theme-english .main-header { background: #0f2b48; }
+.theme-spanish .main-header { background: #4a0e17; }
 
 .header-container {
   max-width: 600px;
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 16px;
 }
 
 .logo {
   font-family: 'Comfortaa', cursive;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   font-weight: 700;
   color: #ffffff;
-  text-decoration: none;
-}
-
-.logo-dot {
-  color: var(--accent-yellow);
 }
 
 .menu-btn {
@@ -125,250 +206,64 @@ body {
 }
 
 /* ==========================================================================
-   2. Анимированный фоновый баннер (Герой-иллюстрация)
+   4. ГЛАВНАЯ СТРАНИЦА (INDEX.HTML) — БАННЕР И КАРТОЧКИ КУРСОВ
    ========================================================================== */
 .hero-banner {
-  background: linear-gradient(180deg, #005a49 0%, #007a63 100%);
-  position: relative;
-  padding: 20px 0 0;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background: linear-gradient(135deg, #005a49 0%, #007a63 100%);
+  color: #ffffff;
+  padding: 30px 20px 40px;
+  text-align: center;
 }
 
-.hero-illustration {
-  position: relative;
-  width: 100%;
-  max-width: 420px;
-  height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Земной шар */
-.globe-wrapper {
-  position: relative;
-  width: 110px;
-  height: 110px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: pulse-glow 4s ease-in-out infinite alternate;
-}
-
-.globe-svg {
-  width: 100%;
-  height: 100%;
-  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
-}
-
-.orbit-ring {
-  position: absolute;
-  width: 150px;
-  height: 60px;
-  border: 2px dashed rgba(255, 255, 255, 0.35);
-  border-radius: 50%;
-  transform: rotate(-15deg);
-  animation: spin-orbit 20s linear infinite;
-}
-
-/* Плавающие бабблы и иконки */
-.floating-badge {
-  position: absolute;
-  background: rgba(255, 255, 255, 0.92);
-  color: var(--primary-dark);
-  font-weight: 800;
-  font-size: 0.85rem;
-  padding: 6px 14px;
-  border-radius: 20px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(4px);
-  animation: float 3.5s ease-in-out infinite alternate;
-}
-
-.badge-1 { top: 15px; left: 15%; }
-.badge-2 { bottom: 35px; right: 12%; }
-.badge-3 { top: 25px; right: 18%; }
-
-.floating-icon {
-  position: absolute;
-  font-size: 1.5rem;
-  animation: float 4s ease-in-out infinite alternate;
-}
-
-.icon-book { bottom: 25px; left: 18%; }
-.icon-sparkle { top: 10px; right: 40%; }
-
-/* Задержки анимации */
-.float-delay-1 { animation-delay: 0s; }
-.float-delay-2 { animation-delay: 1.2s; }
-.float-delay-3 { animation-delay: 2.1s; }
-
-/* Ключевые кадры анимаций */
-@keyframes float {
-  0% { transform: translateY(0px) rotate(0deg); }
-  100% { transform: translateY(-10px) rotate(3deg); }
-}
-
-@keyframes pulse-glow {
-  0% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1)); }
-  100% { transform: scale(1.04); filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3)); }
-}
-
-@keyframes spin-orbit {
-  0% { transform: rotate(-15deg) stroke-dashoffset; }
-  100% { transform: rotate(345deg); }
-}
-
-.hero-wave {
-  width: 100%;
-  line-height: 0;
-  margin-top: 10px;
-}
-
-.hero-wave svg {
-  width: 100%;
-  height: 45px;
-}
-
-/* ==========================================================================
-   3. Главный контейнер и карточки
-   ========================================================================== */
-.content-wrapper {
-  max-width: 600px;
-  margin: -15px auto 0;
-  padding: 0 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  position: relative;
-  z-index: 2;
-}
-
-.card {
-  background: var(--card-bg);
-  border-radius: var(--radius-lg);
-  padding: 24px 20px;
-  box-shadow: var(--shadow-soft);
-  border: 1px solid rgba(0, 122, 99, 0.06);
-}
-
-.card-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 18px;
-}
-
-.icon-badge {
-  font-size: 1.4rem;
-  background: var(--primary-light);
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.card-header h2 {
+.hero-title {
   font-family: 'Comfortaa', cursive;
-  color: var(--primary-dark);
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  opacity: 0.9;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: 'Comfortaa', cursive;
   font-size: 1.3rem;
-  line-height: 1.3;
-}
-
-.card-body p {
+  color: var(--primary-dark);
   margin-bottom: 16px;
-  color: #4a5568;
-  font-size: 0.98rem;
-}
-
-.card-body p:last-child {
-  margin-bottom: 0;
-}
-
-/* Оформление акцентов */
-.highlight {
-  color: var(--primary-dark);
-}
-
-.text-accent {
-  color: var(--primary);
-  font-weight: 700;
-}
-
-.skill-tag {
-  background: var(--primary-light);
-  color: var(--primary-dark);
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 6px;
-  font-size: 0.9em;
-  display: inline-block;
-  margin: 1px 0;
-}
-
-.callout-box {
-  background: #edf7f4;
-  border-left: 4px solid var(--primary);
-  padding: 14px 16px;
-  border-radius: 0 12px 12px 0;
-  margin: 20px 0;
-}
-
-.callout-box p {
-  margin: 0;
-  font-weight: 700;
-  color: var(--primary-dark);
-}
-
-/* ==========================================================================
-   4. Выбор языка
-   ========================================================================== */
-.section-subtitle {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  margin-bottom: 18px;
 }
 
 .lang-grid {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .lang-button {
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 16px;
-  border-radius: var(--radius-md);
-  border: 1.5px solid #e2e8f0;
-  background: #ffffff;
-  text-decoration: none;
-  color: inherit;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(0, 0, 0, 0.04);
   transition: var(--transition);
 }
 
-.lang-button:not(.disabled):hover {
-  border-color: var(--primary);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px -4px rgba(0, 122, 99, 0.12);
+.lang-button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
 }
 
 .flag-icon {
-  width: 48px;
-  height: 34px;
+  width: 44px;
+  height: 32px;
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   flex-shrink: 0;
 }
 
@@ -378,78 +273,155 @@ body {
   object-fit: cover;
 }
 
-.info-icon {
-  background: var(--primary-light);
-  color: var(--primary);
-  border-radius: 10px;
-}
-
 .lang-info {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  width: 100%;
-}
-
-.lang-title-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  width: 100%;
 }
 
 .lang-title {
+  font-size: 1.1rem;
   font-weight: 800;
-  font-size: 1.05rem;
   color: var(--text-main);
 }
 
 .lang-action {
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   color: var(--primary);
   font-weight: 700;
 }
 
-/* Испанский язык в разработке */
-.lang-button.disabled {
-  background: #fdf2f2;
-  border-color: var(--dev-red-border);
-  cursor: not-allowed;
+/* ==========================================================================
+   5. СТРАНИЦЫ КУРСОВ — ХУДОЖЕСТВЕННЫЙ БАННЕР И СТАТЬИ
+   ========================================================================== */
+.art-banner {
+  background: var(--banner-bg, linear-gradient(180deg, #005a49 0%, #007a63 100%));
+  position: relative;
+  padding-top: 20px;
+  overflow: hidden;
 }
 
-.dev-badge {
-  background-color: var(--dev-red-bg);
-  color: var(--dev-red);
-  border: 1px solid var(--dev-red-border);
-  font-size: 0.7rem;
+.art-scene {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 160px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.art-globe {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.02) 70%);
+  border: 2px dashed rgba(255,255,255,0.3);
+  box-shadow: 0 0 30px rgba(0,0,0,0.2);
+  animation: rotateGlobe 25s linear infinite;
+}
+
+.floating-glyph {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.9);
   font-weight: 800;
-  padding: 3px 8px;
-  border-radius: 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  white-space: nowrap;
+  font-family: 'Comfortaa', cursive;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  animation: floatAnim 3.5s ease-in-out infinite alternate;
 }
 
-.lang-action.dev-text {
-  color: var(--dev-red);
-  font-weight: 600;
+.g1 { top: 20px; left: 18%; font-size: 1.4rem; animation-delay: 0s; }
+.g2 { bottom: 30px; right: 18%; font-size: 1.3rem; animation-delay: 1.2s; }
+.g3 { top: 15px; right: 22%; font-size: 1.1rem; color: var(--accent-color, #fbbc04); animation-delay: 0.8s; }
+.g4 { bottom: 25px; left: 20%; font-size: 1.2rem; animation-delay: 2s; }
+
+@keyframes floatAnim {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-12px) rotate(4deg); }
+}
+
+@keyframes rotateGlobe {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.banner-wave {
+  width: 100%;
+  line-height: 0;
+  margin-top: 10px;
+}
+
+.banner-wave svg {
+  width: 100%;
+  height: 45px;
 }
 
 /* ==========================================================================
-   5. Карточка "Содержание занятий Polyglotik" (Внизу)
+6. КОНТЕЙНЕРЫ И КАРТОЧКИ
    ========================================================================== */
-.content-card .placeholder-text {
-  font-size: 1.5rem;
+.content-wrapper {
+  max-width: 600px;
+  margin: -15px auto 0;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.course-gradient-title {
+  background: var(--title-gradient, linear-gradient(135deg, #007a63 0%, #004d3e 100%));
+  color: #ffffff;
+  padding: 20px 24px;
+  border-radius: var(--radius-md);
+  text-align: center;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+.course-gradient-title h1 {
+  font-family: 'Comfortaa', cursive;
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  line-height: 1.3;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card-body p {
+  margin-bottom: 16px;
+  color: #4a5568;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.card-body p:last-child {
+  margin-bottom: 0;
+}
+
+.highlight {
+  color: var(--text-main);
+  font-weight: 800;
+}
+
+.placeholder-dots {
+  font-size: 1.6rem;
   font-weight: 800;
   color: var(--text-muted);
   letter-spacing: 4px;
-  margin: 0;
-  padding: 10px 0;
+  text-align: center;
+  margin-top: 10px !important;
 }
 
 /* ==========================================================================
-   Кнопка "Наверх"
+   7. ВСПУХАЮЩИЕ КНОПКИ И ПОДВАЛ
    ========================================================================== */
 .scroll-top-btn {
   position: fixed;
@@ -471,294 +443,12 @@ body {
 }
 
 .scroll-top-btn:hover {
-  background: var(--primary-dark);
   transform: translateY(-3px);
 }
 
-/* ==========================================================================
-   Адаптивность для ПК (Десктоп)
-   ========================================================================== */
-@media (min-width: 768px) {
-  .hero-illustration {
-    height: 220px;
-  }
-  
-  .globe-wrapper {
-    width: 130px;
-    height: 130px;
-  }
-
-  .floating-badge {
-    font-size: 0.95rem;
-    padding: 8px 18px;
-  }
-}
-/* ==========================================================================
-   Цветовые темы для отдельных языковых страниц
-   ========================================================================== */
-body.theme-english {
-  --course-primary: #0f4c81;
-  --course-gradient-start: #0a2540;
-  --course-gradient-end: #145da0;
-  --course-accent: #fbbc04;
-}
-
-/* ==========================================================================
-   Выезжающее боковое меню (Drawer Menu)
-   ========================================================================== */
-.side-drawer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 280px;
-  height: 100%;
-  background: #ffffff;
-  z-index: 100;
-  box-shadow: 4px 0 25px rgba(0, 0, 0, 0.15);
-  transform: translateX(-100%);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Класс для открытия меню (добавим через JS позже) */
-.side-drawer.open {
-  transform: translateX(0);
-}
-
-.drawer-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(15, 23, 42, 0.5);
-  backdrop-filter: blur(3px);
-  z-index: 99;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-.drawer-overlay.open {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.drawer-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #e2e8f0;
-  margin-bottom: 20px;
-}
-
-.drawer-logo {
-  font-family: 'Comfortaa', cursive;
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--primary-dark);
-}
-
-.drawer-close-btn {
-  background: none;
-  border: none;
-  font-size: 2rem;
-  line-height: 1;
-  color: var(--text-muted);
-  cursor: pointer;
-}
-
-.drawer-section-title {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--text-muted);
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-
-.drawer-nav ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.drawer-link {
-  display: block;
-  padding: 12px 14px;
-  border-radius: 10px;
-  text-decoration: none;
-  color: var(--text-main);
-  font-weight: 700;
-  font-size: 0.98rem;
-  transition: var(--transition);
-}
-
-.drawer-link:hover, .drawer-link.active {
-  background: var(--primary-light);
-  color: var(--primary-dark);
-}
-
-.drawer-link.disabled {
-  opacity: 0.5;
-  pointer-events: none;
-}
-
-/* ==========================================================================
-   Крупный баннер курса (English Hero Banner)
-   ========================================================================== */
-.course-hero-banner {
-  background: linear-gradient(135deg, var(--course-gradient-start) 0%, var(--course-gradient-end) 100%);
-  color: #ffffff;
-  padding-top: 30px;
-  position: relative;
-  overflow: hidden;
-}
-
-.course-hero-content {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 0 20px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.main-footer {
   text-align: center;
-  gap: 24px;
-}
-
-.course-badge {
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  padding: 4px 14px;
-  border-radius: 20px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  margin-bottom: 10px;
-  backdrop-filter: blur(4px);
-}
-
-.course-hero-title {
-  font-family: 'Comfortaa', cursive;
-  font-size: 2.2rem;
-  line-height: 1.1;
-  margin-bottom: 8px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.course-hero-sub {
-  font-size: 0.95rem;
-  opacity: 0.9;
-  max-width: 320px;
-}
-
-/* Иллюстрация баннера */
-.course-hero-graphic {
-  position: relative;
-  width: 180px;
-  height: 140px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.graphic-circle {
-  width: 100px;
-  height: 100px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px dashed rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-}
-
-.bigben-icon {
-  width: 50px;
-  height: 50px;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-}
-
-.floating-tag {
-  position: absolute;
-  background: rgba(255, 255, 255, 0.95);
-  color: #0f172a;
-  font-weight: 800;
-  font-size: 0.75rem;
-  padding: 5px 12px;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-  animation: float 3s ease-in-out infinite alternate;
-}
-
-.tag-en-1 { top: 10px; left: -10px; animation-delay: 0s; }
-.tag-en-2 { bottom: 20px; right: -10px; animation-delay: 1s; }
-.tag-en-3 { top: 15px; right: 0px; background: var(--course-accent); color: #000; animation-delay: 1.8s; }
-
-/* ==========================================================================
-   Заголовочная плашка статьи о языке
-   ========================================================================== */
-.course-title-card {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-  color: #ffffff;
-  padding: 18px 20px;
-  border-radius: var(--radius-md);
-  text-align: center;
-  box-shadow: 0 8px 20px -4px rgba(217, 119, 6, 0.3);
-}
-
-.course-title-card h2 {
-  font-family: 'Comfortaa', cursive;
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: -0.3px;
-}
-
-.article-card {
-  margin-top: -8px;
-}
-
-.lead-text {
-  font-size: 1.05rem;
-  line-height: 1.7;
-}
-
-.article-placeholder p {
-  font-size: 1.5rem;
-  font-weight: 800;
+  padding: 30px 20px 10px;
+  font-size: 0.85rem;
   color: var(--text-muted);
-  letter-spacing: 4px;
-  text-align: center;
-  margin-top: 15px;
-}
-
-/* Адаптивность баннера для ПК */
-@media (min-width: 768px) {
-  .course-hero-content {
-    flex-direction: row;
-    justify-content: space-between;
-    text-align: left;
-    padding-bottom: 40px;
-  }
-
-  .course-hero-title {
-    font-size: 2.8rem;
-  }
-
-  .course-hero-sub {
-    max-width: 100%;
-    font-size: 1.1rem;
-  }
-
-  .course-hero-graphic {
-    width: 220px;
-    height: 160px;
-  }
 }
