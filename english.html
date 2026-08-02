@@ -11,33 +11,26 @@
 </head>
 <body class="theme-english">
 
-  <!-- Фон с узором -->
-  <div class="bg-pattern"></div>
-  <div class="blob blob-course"></div>
-
-  <!-- 1. Выезжающее меню (Drawer Menu) по кнопке "Бургер" -->
+  <!-- Выезжающее меню-сайдбар (по образцу Lingust) -->
   <aside class="side-drawer" id="sideDrawer">
     <div class="drawer-header">
       <span class="drawer-logo">Polyglotik<span class="logo-dot">.</span></span>
-      <button class="drawer-close-btn" id="drawerClose" aria-label="Закрыть меню">&times;</button>
+      <button class="drawer-close-btn" id="drawerClose" aria-label="Закрыть">&times;</button>
     </div>
     <nav class="drawer-nav">
-      <div class="drawer-section-title">Разделы портала</div>
       <ul>
-        <li><a href="index.html" class="drawer-link">🏠 Главная страница</a></li>
-        <li><a href="english.html" class="drawer-link active">🇬🇧 Английский язык</a></li>
-        <li><a href="#" class="drawer-link disabled">🇪🇸 Испанский (в разработке)</a></li>
-        <li><a href="#" class="drawer-link">ℹ️ О сайте</a></li>
+        <li><a href="index.html" class="drawer-link">Главная</a></li>
+        <li><a href="english.html" class="drawer-link active">Английский</a></li>
+        <li><a href="spanish.html" class="drawer-link">Испанский</a></li>
+        <li><a href="#" class="drawer-link">О сайте</a></li>
       </ul>
     </nav>
   </aside>
-  <!-- Затемнение при открытии меню -->
   <div class="drawer-overlay" id="drawerOverlay"></div>
 
-  <!-- 2. Шапка сайта -->
+  <!-- Шапка -->
   <header class="main-header">
     <div class="header-container">
-      <a href="index.html" class="logo">Polyglotik<span class="logo-dot">.</span></a>
       <button class="menu-btn" id="drawerOpen" aria-label="Открыть меню">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
           <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -45,75 +38,79 @@
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
       </button>
+      <a href="index.html" class="logo">Polyglotik<span class="logo-dot">.</span></a>
     </div>
   </header>
 
-  <!-- 3. Крупный тематический баннер курса Английского Языка -->
-  <section class="course-hero-banner">
-    <div class="course-hero-content">
-      <div class="course-hero-text">
-        <span class="course-badge">Курс начального и среднего уровня</span>
-        <h1 class="course-hero-title">English Course</h1>
-        <p class="course-hero-sub">Авторские уроки, современная грамматика и практикум</p>
-      </div>
-
-      <!-- Иллюстрация баннера -->
-      <div class="course-hero-graphic">
-        <div class="graphic-circle">
-          <!-- Иконка Биг-Бена / Часовой башни -->
-          <svg class="bigben-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M32 4L22 18V24H42V18L32 4Z" fill="#FBCD1B"/>
-            <path d="M24 24H40V60H24V24Z" fill="#FFFFFF" fill-opacity="0.9"/>
-            <circle cx="32" cy="34" r="5" fill="#1E293B"/>
-            <path d="M32 31V34H34" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M28 42H36M28 48H36M28 54H36" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        
-        <div class="floating-tag tag-en-1">Grammar</div>
-        <div class="floating-tag tag-en-2">Vocabulary</div>
-        <div class="floating-tag tag-en-3">A1 — B2</div>
-      </div>
+  <!-- Художественный фоновый баннер (Английский) -->
+  <section class="art-banner">
+    <div class="art-scene">
+      <div class="art-globe"></div>
+      <span class="floating-glyph g1">Aa</span>
+      <span class="floating-glyph g2">Bb</span>
+      <span class="floating-glyph g3">English</span>
+      <span class="floating-glyph g4">Hello</span>
     </div>
-
-    <!-- Волна перехода к тексту -->
-    <div class="hero-wave">
+    <div class="banner-wave">
       <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none">
         <path d="M0,32L60,42.7C120,53,240,75,360,80C480,85,600,75,720,58.7C840,43,960,21,1080,16C1200,11,1320,21,1380,26.7L1440,32L1440,120L0,120Z" fill="#f4f9f7"></path>
       </svg>
     </div>
   </section>
 
-  <!-- 4. Основная часть страницы (Статья о языке) -->
-  <main class="content-wrapper course-wrapper">
+  <!-- Основное содержимое страницы -->
+  <main class="content-wrapper">
     
-    <!-- Главная плашка-заголовок статьи (как на Lingust) -->
-    <div class="course-title-card">
-      <h2>Английский язык с нуля!</h2>
+    <!-- Градиентный заголовок в стиле Lingust -->
+    <div class="course-gradient-title">
+      <h1>Курс английского с нуля!</h1>
     </div>
 
-    <!-- Карточка со статьей (Каркас под наполнение текста во 2-й части) -->
+    <!-- Статья о языке -->
     <article class="card article-card">
-      <div class="card-body article-body">
-        <p class="lead-text">
+      <div class="card-body">
+        <p>
           Решили выучить <strong class="highlight">английский язык</strong>? Безусловно, вы сделали правильный выбор, ведь <strong class="highlight">английский язык</strong> — главный язык международного общения.
         </p>
 
-        <!-- Заготовка под продолжение статьи -->
-        <div class="article-placeholder">
-          <p>...</p>
-        </div>
+        <p>
+          Скорее всего, вы уже столкнулись с главной проблемой при <strong class="highlight">изучении английского языка</strong> — огромное количество представленных на рынке учебников, курсов, большинство из которых — пустая трата времени и денег. А если к этому добавить еще <strong class="highlight">самостоятельное обучение</strong> и полное <strong class="highlight">отсутствие начальных знаний</strong> языка, то это всё ставит человека в тупик, и у него пропадает желание изучать английский язык. А <strong class="highlight">желание</strong> — главный ключ к успешному изучению любого иностранного языка.
+        </p>
+
+        <p>
+          Итак, что сайт предлагает вам для успешного <strong class="highlight">изучения английского языка с нуля</strong>?
+        </p>
+
+        <p class="placeholder-dots">...</p>
       </div>
     </article>
 
   </main>
 
-  <!-- Кнопка Наверх -->
   <button class="scroll-top-btn" aria-label="Наверх">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
       <path d="M18 15l-6-6-6 6"/>
     </svg>
   </button>
 
+  <!-- Скрипт для работы Бургер-меню -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const drawer = document.getElementById('sideDrawer');
+      const overlay = document.getElementById('drawerOverlay');
+      const openBtn = document.getElementById('drawerOpen');
+      const closeBtn = document.getElementById('drawerClose');
+
+      function toggleMenu(show) {
+        drawer.classList.toggle('open', show);
+        overlay.classList.toggle('open', show);
+        document.body.style.overflow = show ? 'hidden' : '';
+      }
+
+      if (openBtn) openBtn.addEventListener('click', () => toggleMenu(true));
+      if (closeBtn) closeBtn.addEventListener('click', () => toggleMenu(false));
+      if (overlay) overlay.addEventListener('click', () => toggleMenu(false));
+    });
+  </script>
 </body>
 </html>
