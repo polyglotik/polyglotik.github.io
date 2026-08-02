@@ -16,11 +16,28 @@
   <div class="blob blob-1"></div>
   <div class="blob blob-2"></div>
 
+  <!-- Выезжающее меню (Drawer) -->
+  <aside class="side-drawer" id="sideDrawer">
+    <div class="drawer-header">
+      <span class="drawer-logo">Polyglotik<span class="logo-dot">.</span></span>
+      <button class="drawer-close-btn" id="drawerClose" aria-label="Закрыть">&times;</button>
+    </div>
+    <nav class="drawer-nav">
+      <ul>
+        <li><a href="index.html" class="drawer-link active">Главная</a></li>
+        <li><a href="english.html" class="drawer-link">Английский</a></li>
+        <li><a href="spanish.html" class="drawer-link">Испанский</a></li>
+        <li><a href="#" class="drawer-link">О сайте</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
   <!-- 1. Шапка сайта -->
   <header class="main-header">
     <div class="header-container">
-      <a href="#" class="logo">Polyglotik<span class="logo-dot">.</span></a>
-      <button class="menu-btn" aria-label="Меню">
+      <a href="index.html" class="logo">Polyglotik<span class="logo-dot">.</span></a>
+      <button class="menu-btn" id="drawerOpen" aria-label="Меню">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -30,10 +47,9 @@
     </div>
   </header>
 
-  <!-- 2. Анимированный фоновый баннер (В стиле Lingust) -->
+  <!-- 2. Анимированный фоновый баннер -->
   <section class="hero-banner">
     <div class="hero-illustration">
-      <!-- Центральная планета -->
       <div class="globe-wrapper">
         <svg class="globe-svg" viewBox="0 0 100 100">
           <circle cx="50" cy="50" r="45" fill="url(#globeGrad)" />
@@ -51,25 +67,13 @@
         <div class="orbit-ring"></div>
       </div>
 
-      <!-- Плавающие анимированные элементы -->
-      <div class="floating-badge badge-1 float-delay-1">
-        <span>Hello!</span>
-      </div>
-      <div class="floating-badge badge-2 float-delay-2">
-        <span>¡Hola!</span>
-      </div>
-      <div class="floating-badge badge-3 float-delay-3">
-        <span>Bonjour!</span>
-      </div>
-      <div class="floating-icon icon-book float-delay-2">
-        📚
-      </div>
-      <div class="floating-icon icon-sparkle float-delay-1">
-        ✨
-      </div>
+      <div class="floating-badge badge-1 float-delay-1"><span>Hello!</span></div>
+      <div class="floating-badge badge-2 float-delay-2"><span>¡Hola!</span></div>
+      <div class="floating-badge badge-3 float-delay-3"><span>Bonjour!</span></div>
+      <div class="floating-icon icon-book float-delay-2">📚</div>
+      <div class="floating-icon icon-sparkle float-delay-1">✨</div>
     </div>
 
-    <!-- Волна перехода -->
     <div class="hero-wave">
       <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none">
         <path d="M0,32L60,42.7C120,53,240,75,360,80C480,85,600,75,720,58.7C840,43,960,21,1080,16C1200,11,1320,21,1380,26.7L1440,32L1440,120L0,120Z" fill="#f4f9f7"></path>
@@ -80,7 +84,7 @@
   <!-- Основной контент -->
   <main class="content-wrapper">
     
-    <!-- 3. Карточка 1: Приветствуем всех -->
+    <!-- Карточка 1: Приветствуем всех -->
     <section class="card hero-card">
       <div class="card-header">
         <span class="icon-badge">🌱</span>
@@ -112,7 +116,7 @@
       </div>
     </section>
 
-    <!-- 4. Карточка 2: Выберите язык -->
+    <!-- Карточка 2: Выберите язык -->
     <section class="card lang-card">
       <div class="card-header">
         <span class="icon-badge">🌐</span>
@@ -125,29 +129,26 @@
 
       <div class="lang-grid">
         <!-- Английский язык -->
-       <a href="english.html" class="lang-button">
-  <div class="flag-icon">
-    <img src="https://flagcdn.com/w80/gb.png" alt="Флаг Великобритании">
-  </div>
-  <div class="lang-info">
-    <span class="lang-title">Английский язык</span>
-    <span class="lang-action">Перейти к курсу &rarr;</span>
-  </div>
-</a>
+        <a href="english.html" class="lang-button">
+          <div class="flag-icon">
+            <img src="https://flagcdn.com/w80/gb.png" alt="Флаг Великобритании">
+          </div>
+          <div class="lang-info">
+            <span class="lang-title">Английский язык</span>
+            <span class="lang-action">Перейти к курсу &rarr;</span>
+          </div>
+        </a>
 
-        <!-- Испанский язык (В разработке) -->
-        <div class="lang-button disabled">
+        <!-- Испанский язык -->
+        <a href="spanish.html" class="lang-button">
           <div class="flag-icon">
             <img src="https://flagcdn.com/w80/es.png" alt="Флаг Испании">
           </div>
           <div class="lang-info">
-            <div class="lang-title-row">
-              <span class="lang-title">Испанский язык</span>
-              <span class="dev-badge">В разработке</span>
-            </div>
-            <span class="lang-action dev-text">Скоро появится &rarr;</span>
+            <span class="lang-title">Испанский язык</span>
+            <span class="lang-action">Перейти к курсу &rarr;</span>
           </div>
-        </div>
+        </a>
 
         <!-- О сайте -->
         <a href="#" class="lang-button info-button">
@@ -166,7 +167,7 @@
       </div>
     </section>
 
-    <!-- 5. Карточка 3: Содержание занятий Polyglotik (В самом низу) -->
+    <!-- Карточка 3: Содержание занятий -->
     <section class="card content-card">
       <div class="card-header">
         <span class="icon-badge">📖</span>
@@ -181,11 +182,8 @@
   </main>
 
   <!-- Кнопка наверх -->
-  <button class="scroll-top-btn" aria-label="Наверх">
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Наверх">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
       <path d="M18 15l-6-6-6 6"/>
     </svg>
   </button>
-
-</body>
-</html>
